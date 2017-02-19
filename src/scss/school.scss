@@ -1,0 +1,274 @@
+$width: 980px;
+$headerHeight: 51px;
+
+body {
+  font-family: 'PingFang SC','Myriad Pro','Hiragino Sans GB','microsoft yahei';
+  min-width:1280px;
+  padding-top: $headerHeight;
+}
+
+header {
+  width: 100%;
+  position: fixed;								
+  top: 0;
+  z-index: 10;
+  color: #000;
+  background: #fff;
+  box-shadow: 0 2px 8px 0 #bfbfbf;
+  .container {
+    width: $width;              
+    margin: 0 auto;   
+    position: relative;                       
+    height: 51px;
+    .logo,.links { 
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin-top: auto;
+      margin-bottom: auto;
+    }    
+    .links {
+      right: 0;              
+    }    
+  }   
+  .logo {             
+    font-size: 25px;                                       
+    padding-right: 0.5em;
+    height: 2em;
+    line-height: 2em;
+    background: url(../img/logo.png) no-repeat right 12px;
+    background-size: 0.5em 0.5em;  
+  }
+  .links a {
+    display: inline-block;                      
+    font-size: 16px;   
+    height: 3em;   
+    padding: 0 1em;
+    line-height: 3em;
+    &:hover, &.cur {
+        color: #0FB1FA;         
+    }
+  }  
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  color: #c6cdd5;
+  background: #415874;
+  font-size: 12px;
+  a:hover {
+    text-decoration: underline;
+  }
+  .links-1 {
+    font-size: 16px;
+    color: #fff;
+  }
+  .links-2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  p {
+    margin-top: 30px;
+  }   
+}    
+
+#search-key-from-join {
+  display: none;
+}
+#recruit-info {
+  width: $width;
+  margin: 50px auto 0 auto;
+  padding-bottom: 50px;
+  height: 900px;
+  overflow: hidden;
+  .col-1 {
+    width: 210px;
+    float: left;                       
+  }
+  .col-2 {
+    width: 720px;
+    float: right;
+  }
+  .highlight {
+    color: red;
+  }     
+  .num {
+    font-size: 12px;
+    position: absolute;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    right: -0.5em;
+    top: -0.5em;
+    background: red;
+    color: #fff;
+    text-align: center;
+    line-height: 1.5em;        
+  }    
+}
+#recruit-info .col-1 {
+  .logo {
+    display: block;
+    width: 100%;
+    height: 230px;
+    background: url(../img/job-logo.png) no-repeat center center;
+  }    
+  .tab {
+    font-size: 16px;    
+    color: #465C7E;                     
+    height: 4em;
+    line-height: 4em;
+    text-align: center;
+    cursor: pointer;
+    &:before {
+      content: "";
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+    span {
+      display: inline-block;
+      margin-left: 1em;
+    }
+    i, span {
+      vertical-align: middle;
+    }
+    &.cur {
+      i {
+        background-position-x: -20px;
+      }
+      span {
+        color: #0FB1FA;
+      }
+    }
+  }
+}
+#recruit-info .col-2 {
+  .col-2-title {
+    font-size: 28px;
+    color: #2E4C7B;
+    font-weight: 400;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #bfbfbf;
+  }
+  .tab-content {
+    font-size: 14px;                          
+    color: #2E4C7B;  
+    display: none;
+    &.cur {
+      display: block;
+    } 
+  } 
+  .tab-content-1 {
+    img {
+      width: 740px;
+      height: 300px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    a {
+      color: #0FB1FA;
+    }
+    p {
+      font-size: 20px;
+      padding: 1em 0;
+      font-weight: bold;
+    }
+    dt,dd {
+      padding: 0.2em 0;
+    }
+    .questions dd {
+      color: #73899B;
+      margin-bottom: 1em;
+    }
+  } 
+  .tab-content-3 {
+    dt {
+      font-size: 18px;
+      padding: 1em 0;
+    }
+    dd {
+      line-height: 2em;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    td {
+      height: 4em;
+      text-align: center;
+      vertical-align: middle;
+    }
+    tr {
+      border-bottom: 1px solid #86D4FF;
+    }
+    tr:first-child {
+      background: #86D4FF;
+    }
+  }   
+  .tab-content-2 {
+    .options {
+      padding-top: 20px;
+    }
+    .option {
+      display: inline-block;
+      border-radius: 5px;
+      font-size: 18px;
+      padding: 0.2em 0.5em;
+      background: #E5ECF1;
+      margin-right: 10px;
+      cursor: pointer;
+      position: relative;
+      &:hover, &.cur {
+        background: #0FB1FA;
+        color: #fff;
+      }
+    } 
+    .option-content {
+      font-size: 14px;                          
+      color: #2E4C7B;  
+      display: none;
+      &.cur {
+        display: block;
+      } 
+      .item {
+        border-bottom: 1px solid #bfbfbf; 
+        padding: 10px;
+        &.cur .des {
+          max-height: 700px;
+        } 
+        &.cur .title {
+          color: #0FB1FA;
+        }
+        .title {
+          padding: 1.5em 0; 
+          font-size: 16px;    
+          cursor: pointer; 
+          h5 {
+            text-align: right;  
+          }         
+          h3, h4, h5 {
+            font-weight: 400; 
+          }     
+        }          
+        .des  {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s;
+          ul {
+            list-style: disc inside;     
+            line-height: 2em;  
+          }
+          .duty, .require {
+            font-weight: bold;
+          }
+          p {
+            padding-top: 20px;
+          }
+        }         
+      }         
+    }           
+  }       
+}
