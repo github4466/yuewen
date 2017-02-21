@@ -5,7 +5,10 @@
   var len = $slideBtns.length
   var iNow = 0
   var adTimer
+
+  /*
   $slides.eq(0).show()
+  
   $('#slide-show').hover(function() {
       clearInterval(adTimer)
     }, function() {
@@ -18,7 +21,18 @@
         }
       }, 3000)
     }
-  ).trigger('mouseleave')
+  ).trigger('mouseleave')*/
+  
+  $slides.eq(0).show()
+  iNow++
+  adTimer = setInterval(function() {
+    $slideBtns.eq(iNow).addClass('cur').siblings().removeClass('cur')
+    $slides.eq(iNow).fadeIn(500).siblings().fadeOut(500)
+    iNow++
+    if (iNow === len) {       
+      iNow = 0
+    }
+  }, 6000)
 
   $slideBtns.on('click',function() {  
       $(this).addClass('cur').siblings().removeClass('cur') 
@@ -85,7 +99,6 @@
       dataType: 'html',
       success: function(data){
         var result = /<ul class="container">[\s\S]*<\/ul>/.exec(data)
-        console.log(result)
         $('#news .article-more .text').html(result)
         popupBoxById('article-box')
       }
