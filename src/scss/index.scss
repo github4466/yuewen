@@ -2,13 +2,15 @@ $width: 980px;
    
 body {
   font-family: 'PingFang SC','Myriad Pro','Hiragino Sans GB','microsoft yahei';
-  min-width:1280px;
+//  min-width:1280px;
 }
+
 header {
   position: fixed;
+  left: 0;
   top: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 100;
   color: #fff; 
   .container {             
     position: relative;
@@ -29,7 +31,22 @@ header {
       line-height: 2em;
       background: url(../img/logo.png) no-repeat right 12px;
       background-size: 0.5em 0.5em;  
-    }     
+    }  
+    .cur-link-value {
+      display: none;
+      position: absolute; 
+      top: 0;left: 0; right: 0; down: 0;
+      margin: auto;
+      font-size: 14px; 
+      width: 6em;    
+      height: 4em; 
+      text-align: center;
+      line-height: 4em;
+      cursor: pointer;
+      i {
+        font-style: normal;
+      }
+    }  
     .links {
       right: 100px;  
       a {
@@ -128,21 +145,22 @@ header {
       background-size: cover;      
     }        
     div {
+      font-size: 64px;
       width: $width;                         
       height: 220px;
       position: absolute;
       left: 0; right: 0; top: 0; bottom: 0;
       margin: auto;    
       p:nth-of-type(1) {
-        font-size: 64px;                              
+        font-size: 1em;                              
       }
       p:nth-of-type(2) {
-        font-size: 40px;                              
+        font-size: 0.6em;                              
       }   
       a {
         display: inline-block;
         text-align: center;
-        font-size: 26px;
+        font-size: 0.4em;
         color: #fff;      
         padding: 0.2em 0.4em;
         border-radius: 5px;
@@ -390,7 +408,6 @@ header {
 
 #brand {
   width: 100%;
-  height: 565px;
   background: url(../img/brandbg.jpg) no-repeat;
   background-size: cover;  
   color: #fff;
@@ -459,7 +476,7 @@ header {
 
 #news {
   width: $width;
-  margin: 0 auto;                  
+  margin: 0 auto;               
   .news-title {
     text-align: center;
     font-size: 36px;
@@ -562,8 +579,9 @@ header {
       }
       .icon-close {
         position: absolute;
+        z-index: 20;
         right: 40px;
-        top: 40px;        
+        top: 10px;        
         width: 32px;
         height: 32px;
         font-size: 32px;
@@ -642,9 +660,8 @@ header {
 }
 #contact {
   width: 100%;
-  height: 576px;
   background: url(../img/contact-bg.png) no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
   font-size: 14px;
   color: #fff;     
   position: relative;
@@ -654,7 +671,7 @@ header {
     padding: 40px 0 0 0;  
     .row {
       margin-bottom: 30px;
-      h1 {
+      h1, p {
         font-size: 1em;    
       }
       .row-left, .row-right {
@@ -662,7 +679,8 @@ header {
         display: inline-block;
       }      
     }             
-  }     
+  }  
+     
   .place {
     position: absolute;
     width: 110px;
@@ -670,15 +688,15 @@ header {
     line-height: 50px;
     &.place-beijin {
       top: 30%;
-      left: 64%;
+      left: calc(68% - 55px);
     }
     &.place-shanghai {
       top: 60%;
-      left: 73%;
+      left: calc(77% - 55px);
     }
     &.place-hangzhou {
       top: 66%;
-      left: 69%;
+      left: calc(74% - 55px);
     }     
     .dot {
       position: absolute;
@@ -695,13 +713,200 @@ header {
     }           
   }
   .copyright {
-    position: absolute;
-    bottom: 0;
     width: 100%;
-    height: 80px;
+    padding: 20px 0;
     background: rgba(0,0,0,0.5);
     text-align: center;
-    font-size: 16px;
-    line-height: 80px;            
+    font-size: 1.2em;          
   }  
 }   
+
+
+@media screen and (max-width: 1279px) {
+  #book .container {
+    width: 960px;
+  }
+}
+
+@media screen and (max-width: 1020px) {
+  header .container {
+    width: 94%;
+  }
+  #slide-show {
+    .slide-ctrl {
+      width: 94%;
+    }
+    .slide div {
+      width: 94%;
+    }
+  }
+  #data {
+    .data-up,.data-down {
+      width: 94%;
+    }
+  }
+  #mobile-product {
+    width: 94%;
+  }
+
+  #brand {
+    .slides, .links {
+      width: 94%;
+    }
+  }
+  #news {
+    width: 94%;
+    .article-more #article-box.pop-box {
+      width: 94%;
+    }
+  }
+  #contact {
+    .contact-detail {
+      width: 94%;
+    }
+  }
+}
+
+
+@media screen and (max-width: 959px) {
+  #book .container {
+    width: 640px;
+  }
+  #brand .slides{
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  header .container {
+    .logo {
+      font-size: 18px;
+    }
+    .links {
+      max-height: 0;
+      overflow: hidden;
+      position: fixed;
+      width: 100%;
+      right: 0;
+      top: 51px;
+      bottom: auto;
+      background: white;
+      transition: max-height 0.3s;            
+      a {
+        display: block;
+        width: 80%;
+        padding: 0;
+        margin: 0 auto;
+        border-bottom: solid 1px #f4f4f4;
+        text-align: center;
+        color: black;
+        background: transparent;
+        transition: none;
+        &.cur {
+          color: #019EE4;
+          background: transparent;
+          border-bottom: solid 1px #f4f4f4;
+        }
+      }       
+    }
+  } 
+  header.header-change .container {
+    .cur-link-value {
+      display: block;
+    }         
+    .links.show {
+      max-height: 300px;
+    }
+  }
+  #news .news-container .row {
+    .article.row-left, .article.row-right {
+      float: none;
+      width: 100%;
+    }
+  }
+  #contact {
+    .place {
+      display: none;
+    }
+    .contact-detail .row{
+      overflow: auto;
+      .row-left, .row-right{
+        width: 45%;   
+        text-align: center;
+      } 
+      .row-left { float: left; }
+      .row-right {  float: right;}
+    }
+  }
+}
+
+@media screen and (max-width: 720px) {
+  #brand .slides{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  #slide-show .slides div{
+    font-size: 48px;
+  }
+}
+
+@media screen and (max-width: 639px) {
+  #book .container {
+    width: 320px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  #slide-show .slides div{
+    font-size: 36px;
+  }
+  #mobile-product .title, #book .title, #brand .title, #news .news-title {
+    font-size: 24px;
+  } 
+  #mobile-product .slides {
+    height: 220px;
+    .slide {
+      .slide-right {
+        display: none;
+      }
+      .slide-left {
+        width: 100%;
+        img {
+          height: 220px;
+        }
+      }
+    }
+  }
+  #brand .links a {
+    padding: 4px 4px;
+    margin: 4px 2px;
+  }
+  #news {
+    .news-container .row .article .article-title {
+      font-size: 16px;
+    }
+    .article-more #article-box.pop-box {
+      .text .container {
+        width: 100%;
+        .article .article-title {
+          font-size: 14px;
+        }
+      }
+      .icon-close {
+        top: 0;
+        right: 10px;
+      }
+      .line {
+        display: none;
+      }
+    }
+  }
+  #contact {
+    font-size: 12px;
+    .copyright {
+      font-size: 0.8em;
+    }
+  }
+}

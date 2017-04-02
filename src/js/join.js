@@ -28,4 +28,8 @@
     }
   })
 
+  $('header .container .nav').click(function(){
+    $('header .container .links').toggleClass('show')
+  })
+
 })()

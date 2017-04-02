@@ -1,6 +1,5 @@
 body{
     font-family: 'PingFang SC','Myriad Pro','Hiragino Sans GB','microsoft yahei';
-    min-width:1280px;
     background: #C7EDCC;
 }	
 
@@ -23,4 +22,10 @@ body{
 p{
 	text-indent: 2em;
 	text-align: justify;
+}
+
+@media screen and (max-width: 650px) {
+	.article{
+		width: 94%;
+	}
 }

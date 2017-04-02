@@ -2,7 +2,6 @@ $width: 980px;
 $headerHeight: 51px;
 body {
   font-family: 'PingFang SC','Myriad Pro','Hiragino Sans GB','microsoft yahei';
-  min-width:1280px;
   padding-top: $headerHeight;
 }
 
@@ -19,7 +18,7 @@ header {
     margin: 0 auto;   
     position: relative;                       
     height: 51px;
-    .logo,.links { 
+    .logo,.links,.nav { 
       position: absolute;
       top: 0;
       bottom: 0;
@@ -47,6 +46,12 @@ header {
     &:hover, &.cur {
         color: #0FB1FA;         
     }
+  }
+  .nav {
+    right: 20px;
+    line-height: 51px;
+    font-size: 16px;
+    display: none;
   }  
 }
 
@@ -121,11 +126,11 @@ footer {
   }
   #intro-video-pop-box {
     top: 0;
+    down: 0;
     left: 0; 
     right: 0;
-    margin: 0 auto;
-    width:1137px;
-    height: 640px;
+    margin: auto;
+    width: 980px;
   }
 }
 #work-condition {
@@ -194,7 +199,79 @@ footer {
     }   
     img {
       width: 100%;
-      height: 200px;
     }             
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  header .container {
+    width: 94%;
+  }
+  #work-condition .train {
+    width: 94%;
+  }
+  #work-condition .welfare {
+    width: 94%;
+  }
+  #intro-video #intro-video-pop-box {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  #work-condition .train {
+    .row {
+      padding-bottom: 0;
+    }
+    .row-left, .row-right {
+      float: none;
+      width: auto;
+      margin-bottom: 20px;
+    }
+  } 
+  #work-condition .welfare {
+    .row {
+      padding-bottom: 0;
+    }
+    .row-left, .row-right {
+      float: none;
+      width: auto;
+      margin-bottom: 20px;
+    }
+  }
+  #intro-video {
+    height: 300px;
+    .close-btn {
+      margin-left: -30px;
+    }
+    h2 {
+      font-size: 30px;
+    }
+    h3 {
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  header .container {
+    .links {
+      max-height: 0;
+      overflow: hidden;
+      top: 51px;
+      bottom: auto;
+      text-align: center;
+      background: white;
+      transition: max-height 0.3s;
+      a {
+        display: block;
+      }
+      &.show {
+        max-height: 300px;
+      }
+    }
+    .nav {
+      display: block;
+    }
   }
 }

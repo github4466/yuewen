@@ -3,7 +3,6 @@ $headerHeight: 51px;
 
 body {
   font-family: 'PingFang SC','Myriad Pro','Hiragino Sans GB','microsoft yahei';
-  min-width:1280px;
   padding-top: $headerHeight;    
 }
 
@@ -20,7 +19,7 @@ header {
     margin: 0 auto;   
     position: relative;                       
     height: 51px;
-    .logo,.links { 
+    .logo,.links,.nav { 
       position: absolute;
       top: 0;
       bottom: 0;
@@ -48,7 +47,13 @@ header {
     &:hover, &.cur {
       color: #0FB1FA;         
     }
-  }       
+  } 
+  .nav {
+    right: 20px;
+    line-height: 51px;
+    font-size: 16px;
+    display: none;
+  }      
 }
 
 footer {
@@ -197,4 +202,67 @@ footer {
       }
     }   
   }      
+}
+
+@media screen and (max-width: 1000px) {
+  header .container {
+    width: 94%;
+  }
+  #recruit-info {
+    width: 94%;
+    .col-2 {
+      width: calc(100% - 230px);
+    }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  #recruit-info {
+    margin-top: 20px;
+    .logo {
+      display: none;
+    }
+    .col-1 {
+      float: none;
+      width:100%;
+      .tabs {
+        margin-bottom: 20px;
+      }
+      .tabs .tab {
+        display: inline-block;
+        height: 2em;
+        line-height: 2em;
+        i {
+          display: none;
+        }
+      }
+    }   
+    .col-2 {
+      float: none;
+      width:100%;
+    }   
+  }
+}
+
+@media screen and (max-width: 500px) {
+  header .container {
+    .links {
+      max-height: 0;
+      overflow: hidden;
+      top: 51px;
+      bottom: auto;
+      text-align: center;
+      background: white;
+      transition: max-height 0.3s;
+      a {
+        display: block;
+      }
+      &.show {
+        max-height: 300px;
+      }
+    }
+    .nav {
+      display: block;
+    }
+  }
 }

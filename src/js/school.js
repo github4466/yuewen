@@ -55,4 +55,9 @@
 		}
 		$('#recruit-info .col-1 .tab').eq(1).click()
 	}
+
+  $('header .container .nav').click(function(){
+    $('header .container .links').toggleClass('show')
+  })
+  	
 })()

@@ -27,4 +27,9 @@
 		video.currentTime = 0  
 		video.play()
 	})
+
+  $('header .container .nav').click(function(){
+    $('header .container .links').toggleClass('show')
+  })
+	
 })()
