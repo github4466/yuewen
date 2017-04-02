@@ -126,7 +126,6 @@ footer {
   }
   #intro-video-pop-box {
     top: 0;
-    down: 0;
     left: 0; 
     right: 0;
     margin: auto;
@@ -240,9 +239,13 @@ footer {
     }
   }
   #intro-video {
-    height: 300px;
+    height: 300px; 
+    #intro-video-pop-box {
+      top: 30px;
+    }
     .close-btn {
       margin-left: -30px;
+      margin-top: -30px;
     }
     h2 {
       font-size: 30px;
