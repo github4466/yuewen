@@ -232,8 +232,16 @@ footer {
         display: inline-block;
         height: 2em;
         line-height: 2em;
-        i {
+        padding-right: 2em;
+        span {
+          margin-left: 0;
+        }
+        .icons-social {
           display: none;
+        }
+        .num {
+          right: 1.5em;
+          top: 5px;    
         }
       }
     }   
