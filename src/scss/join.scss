@@ -1,59 +1,11 @@
 $width: 980px;
 $headerHeight: 51px;
 
+@import './common/joinHeaderFooter.scss';
+
 body {
   font-family: 'PingFang SC','Myriad Pro','Hiragino Sans GB','microsoft yahei';
   padding-top: $headerHeight;    
-}
-
-header {
-  width: 100%;
-  position: fixed;								
-  top: 0;
-  z-index: 10;
-  color: #000;
-  background: #fff;
-  box-shadow: 0 2px 8px 0 #bfbfbf;
-  .container {
-    width: $width;              
-    margin: 0 auto;   
-    position: relative;                       
-    height: 51px;
-	  .logo,.links, .nav { 
-	    position: absolute;
-	    top: 0;
-	    bottom: 0;
-	    margin-top: auto;
-	    margin-bottom: auto;
-	  }    
-	  .links {
-	    right: 0;              
-	  }    
-  } 
-	.logo {             
-    font-size: 25px;                                       
-    padding-right: 0.5em;
-    height: 2em;
-    line-height: 2em;
-    background: url(../img/logo.png) no-repeat right 12px;
-    background-size: 0.5em 0.5em;  
-	}   
-	.links a {
-    display: inline-block;                      
-    font-size: 16px;   
-    height: 3em;   
-    padding: 0 1em;
-    line-height: 3em;
-    &:hover, &.cur {
-        color: #0FB1FA;         
-    }
-	}	 
-	.nav {
-		right: 20px;
-		line-height: 51px;
-		font-size: 16px;
-		display: none;
-	}
 }
 
 
@@ -196,28 +148,6 @@ header {
 	}
 }
 
-footer {
-	width: 100%;
-	text-align: center;
-	padding: 20px 0;
-	color: #c6cdd5;
-	background: #415874;
-	font-size: 12px;
-	a:hover {
-		text-decoration: underline;
-	}
-	.links-1 {
-		font-size: 16px;
-		color: #fff;
-	}
-	.links-2 {
-		margin-top: 20px;
-		margin-bottom: 10px;
-	}
-	p {
-		margin-top: 30px;
-	}	
-} 
 
 
 @media screen and (max-width: 980px) {

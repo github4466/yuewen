@@ -4,6 +4,7 @@ let gulp = require('gulp'),
     cssmin = require('gulp-clean-css'),
 	  autoprefixer = require('gulp-autoprefixer'),
     htmlmin = require('gulp-htmlmin'),
+    contentIncluder = require('gulp-content-includer'),
     uglify = require('gulp-uglify'),
     concat = require("gulp-concat"),
     browserSync = require('browser-sync').create()
@@ -20,7 +21,10 @@ gulp.task('html', () => {
     minifyJS: true,//压缩页面JS
     minifyCSS: true//压缩页面CSS
   }
-  gulp.src(['src/**/*.html', 'src/*.html'])
+  gulp.src(['src/**/*.html', 'src/*.html', '!src/html/common/*.html'])
+      .pipe(contentIncluder({
+        includerReg:/<!\-\-include\s+"([^"]+)"\-\->/g
+      }))  
       .pipe(htmlmin(options))
       .pipe(gulp.dest('dist'))
       .pipe(browserSync.stream())
@@ -39,6 +43,30 @@ gulp.task('sass', () => {
       .pipe(gulp.dest('dist/css'))
       .pipe(browserSync.stream())  
 })
+/*
+gulp.task('sass', () => {
+  return new Promise(function(resolve, reject) {
+      return setTimeout(function() {
+          return gulp.src(['src/scss/*.scss', 'src/scss/common/common.scss'])
+            .pipe(sass({outputStyle: 'expanded'}))
+            .pipe(autoprefixer({
+                browsers: ['last 15 versions', '> 1%', 'ie 8', 'ie 7'],
+                remove:true //去掉不必要的前缀
+            }))
+            .pipe(cssmin({
+              keepSpecialComments: '*'  //保留所有特殊前缀 当你用autoprefixer生成的浏览器前缀，如果不加这个参数，有可能将会删除你的部分前缀
+            }))
+            .on('error', function(e) {
+                return reject(e) && this.end();
+            })
+            .pipe(gulp.dest('dist/css'))
+            .on('end', resolve)
+            .pipe(browserSync.stream())
+      }, 500);
+  }).catch(function(e) {
+      return console.warn(e.messageFormatted);
+  });
+})*/
 
 gulp.task('js', () => {
   gulp.src('src/js/*.js')
@@ -53,7 +81,7 @@ gulp.task('browser-sync', ['sass', 'html', 'js'], () => {
       baseDir: './dist'
     }
   })
-  gulp.watch('src/scss/*.scss', ['sass'])
+  gulp.watch('src/scss/**/*.scss', ['sass'])
   gulp.watch(['src/**/*.html', 'src/*.html'], ['html'])
   gulp.watch('src/js/*.js', ['js'])  
 })
